@@ -1,0 +1,59 @@
+---
+const team = [
+  {
+    name: 'Wayan',
+    role: 'Founder & Patriarch',
+    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAbs3-a0uJyL3pLIN1Hwt6GPFF6mcnNElqTG32wsU7EAj3_aBnkqcMUP4hpCKh-jPq_xQPiWFdrGFlDEvCjew46yZNg_98GRGQoY6mlgu3m-P0ppSxkjA-_e4haT7QMpcUgMdsEa4oWY_N_gRRYYe3IQF-XMfI5WDHvAYF-WiWSSF3m5LmTOYBJov4I51KgzY1ElYLyWeyCF7os0EnP8qX-mUzyTWEIDgPoAx6EZAR_YPMKJkgGmw1_Qu38hKd0ZCPd3UVTGpqntqSS',
+    alt: 'Portrait of a smiling Balinese man',
+  },
+  {
+    name: 'Made',
+    role: 'Head of Guest Experience',
+    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCCN1d1e_4aquGSeiqusq5T6e9AddXBzvNsyPudybsM2WofstacgyxJftKLhf1tRzsHzkyBO8tYC9tajg_FOF8X9KufF1vJKAQn7EMb0v6H_kjcjz1T4GYTG5HXtIk1_v2zgYwK8eUGi8kdk4j4OH-SY6sFQXPxicB2TQ6XLP8KLT7ydgxcp52-rP-w8-qg8MZgvNvOVUvJA_HT-VT7KO62CVnGF84EKfLQaGw_40LcQhxLkVGV0_bra4mPtBv7m2bJacXRFl20DWR4',
+    alt: 'Portrait of a Balinese woman',
+  },
+  {
+    name: 'Nyoman',
+    role: 'Executive Chef',
+    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDTGVsMkKrfHWZhxq9jNzG0L57mVAjKM7TPf0DRk5LZM-oSTKQRHZlJzj_MTEMU3khWFspaXGdT8tHnSelMfoB72EgkDnC8EPjMR8dFrBBE1tRpqXLHjLGlsJofAqByQH5FzkbP_rqDGDsQQoFDthP39fC05CloMwQEWT8wfiEemcU1gtRG8ZA0iZQtQBCirR8A5g2Zgo2Mwuu4G_Et4vzkdF1Nfb3X-gGxsU4EJAxQtnRQQsEmXp6kUgmjk2eqFOOPss8CfZxJG5ia',
+    alt: 'Portrait of a young Balinese man in a kitchen',
+  },
+  {
+    name: 'Ketut',
+    role: 'Head Guide',
+    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgdB4exvhkWT49EQOWVxJTbAVf0k4Us88utxcGGC4PF1u5uuhK_X1_RjvdA_sGvuL5ilX47SN47vNX_MmbVUgPzM5-rI28qhDPpIXQeeHcvJd68Tg2_P1tpIgIXoXl1z2ERp92igT5_DDDnS7cQkW2B71Vik3c6fBgJXftdmVuRmSWT-KR7CIFeXflfcu48NLYeIcj7LImcW2Ck0DlomO4iB4y-AYfVD21kcnFTQE0_lE1zVlsE-vNuIk73IK75z6PvxoAH0CVQI2t',
+    alt: 'Portrait of a Balinese guide',
+  },
+];
+---
+
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8" data-aos="fade-up">
+      <div class="max-w-2xl">
+        <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-surface mb-6 tracking-tight">
+          Meet the Family
+        </h2>
+        <p class="text-on-surface-variant text-lg leading-relaxed">
+          When you stay at D'karang, you are a guest in our home. Meet the dedicated individuals who
+          bring our vision of authentic hospitality to life.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+      {team.map((member, index) => (
+        <div class="group" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="relative w-full aspect-3/4 mb-6 overflow-hidden rounded-xl bg-surface-container-high">
+            <img
+              alt={member.alt}
+              class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+              src={member.src}
+            />
+          </div>
+          <h4 class="font-headline text-xl font-bold text-on-surface mb-1">{member.name}</h4>
+          <p class="text-primary text-sm uppercase tracking-wider mb-3">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

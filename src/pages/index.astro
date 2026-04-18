@@ -1,11 +1,24 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import AboutSection from '../components/home/AboutSection.astro';
+import HeritageSection from '../components/home/HeritageSection.astro';
+import GallerySection from '../components/home/GallerySection.astro';
+import ExperienceSection from '../components/home/ExperienceSection.astro';
+import NearbySection from '../components/home/NearbySection.astro';
+import TestimonialSection from '../components/home/TestimonialSection.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="D'karang Eco Lodge">
+  <Navbar activeLink="lodge" />
+  <HeroSection />
+  <AboutSection />
+  <HeritageSection />
+  <GallerySection />
+  <ExperienceSection />
+  <NearbySection />
+  <TestimonialSection />
+  <Footer />
 </Layout>

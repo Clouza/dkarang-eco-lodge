@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const packages = [
+  {
+    name: 'Weekend Retreat',
+    duration: '2 Nights / 3 Days',
+    price: 'From IDR 3.500.000',
+    description:
+      'The perfect short escape. Unwind in our garden villa, enjoy a traditional welcome dinner, and wake to birdsong and jungle mist.',
+    features: [
+      'Garden View Villa room',
+      'Daily breakfast for 2',
+      'Traditional welcome dinner',
+      'Infinity pool access',
+      'Village walking tour (1 hr)',
+    ],
+    icon: 'weekend',
+    highlight: false,
+  },
+  {
+    name: 'Cultural Immersion',
+    duration: '4 Nights / 5 Days',
+    price: 'From IDR 7.200.000',
+    description:
+      'Dive deep into Balinese life. Cook with our chef, learn traditional offerings, trek the rice terraces of Undisan, and attend a local ceremony.',
+    features: [
+      'Jungle View Villa room',
+      'Daily breakfast & dinner',
+      'Balinese cooking class',
+      'Traditional offering workshop',
+      'Guided rice terrace trek',
+      'Local ceremony visit',
+      'Complimentary airport transfer',
+    ],
+    icon: 'temple_buddhist',
+    highlight: true,
+  },
+  {
+    name: 'Family Sanctuary',
+    duration: '5 Nights / 6 Days',
+    price: 'From IDR 12.500.000',
+    description:
+      'A fully curated family experience. Two interconnected villas, child-friendly activities, nature trails, and dedicated family concierge.',
+    features: [
+      '2 interconnected Garden Villas',
+      'Daily breakfast, lunch & dinner',
+      'Guided nature trail (family)',
+      'Kids batik painting workshop',
+      'Infinity pool & garden play area',
+      'Family concierge service',
+      'Complimentary airport transfer',
+    ],
+    icon: 'family_restroom',
+    highlight: false,
+  },
+];
+---
+
+<Layout title="Packages | D'karang Eco Lodge">
+  <Navbar activeLink="packages" />
+
+  <!-- Page Hero -->
+  <header class="pt-32 md:pt-40 pb-12 px-6 md:px-12 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <span class="text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block animate-hero-title">
+        Curated Stays
+      </span>
+      <h1 class="font-headline text-4xl md:text-6xl font-bold text-on-surface tracking-tight animate-hero-body">
+        Choose Your Sanctuary
+      </h1>
+      <p class="text-on-surface-variant text-base md:text-lg mt-4 max-w-xl animate-hero-cta">
+        Each package is thoughtfully designed to immerse you in the beauty, culture, and tranquility of Undisan Village.
+      </p>
+    </div>
+  </header>
+
+  <!-- Packages Grid -->
+  <section class="py-20 px-6 md:px-12 bg-surface">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      {packages.map((pkg, index) => (
+        <div
+          class={`relative rounded-2xl flex flex-col overflow-hidden shadow-md transition-transform hover:-translate-y-1 duration-300 ${pkg.highlight ? 'ring-2 ring-primary' : ''}`}
+          data-aos="fade-up"
+          data-aos-delay={index * 150}
+        >
+          {pkg.highlight && (
+            <div class="bg-primary text-on-primary text-xs font-label uppercase tracking-widest text-center py-2 px-4">
+              Most Popular
+            </div>
+          )}
+          <div class="bg-surface-container-lowest p-8 flex flex-col flex-1">
+            <!-- Icon & Name -->
+            <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-primary-container text-2xl font-light">
+                {pkg.icon}
+              </span>
+            </div>
+            <h2 class="font-headline text-2xl font-bold text-on-surface mb-1">{pkg.name}</h2>
+            <p class="text-secondary text-sm font-label mb-4">{pkg.duration}</p>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-6">{pkg.description}</p>
+
+            <!-- Features -->
+            <ul class="space-y-2 mb-8 flex-1">
+              {pkg.features.map((f) => (
+                <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5 shrink-0">check_circle</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <!-- Price & CTA -->
+            <div class="border-t border-outline-variant/40 pt-6">
+              <p class="font-headline text-xl text-primary font-bold mb-4">{pkg.price}</p>
+              <a
+                href="/contact"
+                class={`block w-full text-center rounded-full px-6 py-3 text-sm font-label font-semibold transition-opacity hover:opacity-90 ${pkg.highlight ? 'bg-linear-to-r from-primary to-primary-container text-on-primary' : 'border-2 border-primary text-primary hover:bg-primary hover:text-on-primary'}`}
+              >
+                Enquire Now
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Custom Package CTA -->
+  <section class="py-20 bg-surface-container-low px-6 text-center" data-aos="fade-up">
+    <span class="material-symbols-outlined text-primary-container text-5xl mb-4 block">tune</span>
+    <h2 class="font-headline text-3xl md:text-4xl text-on-surface mb-4">
+      Need a Custom Package?
+    </h2>
+    <p class="text-on-surface-variant mb-8 max-w-md mx-auto">
+      We're happy to tailor an experience around your group, dates, and preferences. Reach out and we'll create something just for you.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-linear-to-r from-primary to-primary-container text-on-primary font-label text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+    >
+      Contact Us
+    </a>
+  </section>
+
+  <Footer />
+</Layout>

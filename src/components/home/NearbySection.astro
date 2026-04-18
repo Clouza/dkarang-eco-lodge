@@ -1,0 +1,80 @@
+---
+const attractions = [
+  {
+    icon: 'temple_buddhist',
+    name: 'Goa Gajah',
+    distance: '15 mi',
+    description: "The 'Elephant Cave' — an 11th-century rock-hewn sanctuary surrounded by lush ravines and ancient bathing pools.",
+  },
+  {
+    icon: 'water',
+    name: 'Tegenungan Waterfall',
+    distance: '17 mi',
+    description: 'A dramatic waterfall plunging into a jungle gorge, easily reached via a short riverside trail.',
+  },
+  {
+    icon: 'fort',
+    name: 'Ubud Palace',
+    distance: '19 mi',
+    description: "The royal seat of Ubud's traditional ruling family — a living landmark at the heart of Bali's cultural capital.",
+  },
+  {
+    icon: 'landscape',
+    name: 'Tegallalang Rice Terrace',
+    distance: '21 mi',
+    description: 'Iconic stepped rice paddies carved into the hillside, a testament to the ancient subak irrigation system.',
+  },
+  {
+    icon: 'forest',
+    name: 'Monkey Forest Ubud',
+    distance: '19 mi',
+    description: 'A sacred forest sanctuary home to hundreds of long-tailed macaques and three ancient Hindu temples.',
+  },
+  {
+    icon: 'flight',
+    name: 'Ngurah Rai Airport',
+    distance: '33 mi',
+    description: "Bali's international gateway. Our shuttle service makes the transfer smooth — just let us know your flight.",
+  },
+];
+---
+
+<section class="py-20 px-6 md:px-12 bg-surface">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">
+        What's Nearby
+      </span>
+      <h2 class="font-headline text-3xl md:text-4xl text-on-surface mb-4">
+        Explore the Region
+      </h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto text-base">
+        Undisan sits at a natural crossroads — close to Bali's most sacred sites, yet far from the crowds.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {attractions.map((place, index) => (
+        <div
+          class="flex gap-4 items-start bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/30"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="w-11 h-11 rounded-full bg-primary-container flex items-center justify-center shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-on-primary-container text-xl font-light">
+              {place.icon}
+            </span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-headline text-base font-bold text-on-surface">{place.name}</h3>
+              <span class="text-xs text-secondary font-label bg-surface-container-high px-2 py-0.5 rounded-full">
+                {place.distance}
+              </span>
+            </div>
+            <p class="text-sm text-on-surface-variant leading-relaxed">{place.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

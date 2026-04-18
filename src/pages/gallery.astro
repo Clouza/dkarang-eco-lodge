@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import GalleryGrid from '../components/gallery/GalleryGrid.astro';
+---
+
+<Layout title="Gallery | D'karang Eco Lodge">
+  <Navbar activeLink="gallery" />
+
+  <!-- Page Hero -->
+  <header class="pt-32 md:pt-40 pb-12 px-6 md:px-12 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <span class="text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block animate-hero-title">
+        Visual Journey
+      </span>
+      <h1 class="font-headline text-4xl md:text-6xl font-bold text-on-surface tracking-tight animate-hero-body">
+        A Glimpse of D'karang
+      </h1>
+      <p class="text-on-surface-variant text-base md:text-lg mt-4 max-w-xl animate-hero-cta">
+        Explore the landscapes, spaces, and moments that define life at D'karang Eco Lodge.
+      </p>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <section class="py-16 px-6 md:px-12 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <GalleryGrid />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-surface-container-low text-center px-6" data-aos="fade-up">
+    <h2 class="font-headline text-3xl md:text-4xl text-on-surface mb-4">
+      Ready to Experience It in Person?
+    </h2>
+    <p class="text-on-surface-variant mb-8 max-w-md mx-auto">
+      Book your stay and let D'karang Eco Lodge be the backdrop to your most memorable moments.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-linear-to-r from-primary to-primary-container text-on-primary font-label text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+    >
+      Book Your Stay
+    </a>
+  </section>
+
+  <Footer />
+</Layout>
