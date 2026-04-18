@@ -60,13 +60,13 @@ const links = [
 <!-- Backdrop -->
 <div
   id="sidebar-backdrop"
-  class="fixed inset-0 z-60 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
 ></div>
 
 <!-- Sidebar -->
 <aside
   id="sidebar"
-  class="fixed top-0 right-0 z-70 h-full w-72 bg-surface shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-out md:hidden"
+  class="fixed top-0 right-0 z-[70] h-full w-72 bg-surface shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-out md:hidden"
 >
   <!-- Sidebar header -->
   <div class="flex justify-between items-center px-6 py-5 border-b border-outline-variant/30">
@@ -109,29 +109,39 @@ const links = [
 </aside>
 
 <script>
-  const openBtn = document.getElementById('sidebar-open');
-  const closeBtn = document.getElementById('sidebar-close');
-  const sidebar = document.getElementById('sidebar');
-  const backdrop = document.getElementById('sidebar-backdrop');
+  function initSidebar() {
+    const openBtn = document.getElementById('sidebar-open');
+    const closeBtn = document.getElementById('sidebar-close');
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
 
-  function openSidebar() {
-    sidebar?.classList.remove('translate-x-full');
-    backdrop?.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.style.overflow = 'hidden';
+    if (!openBtn || !sidebar || !backdrop || !closeBtn) return;
+
+    function openSidebar() {
+      sidebar?.classList.remove('translate-x-full');
+      backdrop?.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar?.classList.add('translate-x-full');
+      backdrop?.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    backdrop.addEventListener('click', closeSidebar);
+
+    // close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSidebar();
+    });
   }
 
-  function closeSidebar() {
-    sidebar?.classList.add('translate-x-full');
-    backdrop?.classList.add('opacity-0', 'pointer-events-none');
-    document.body.style.overflow = '';
-  }
+  // Initialize on first load
+  initSidebar();
 
-  openBtn?.addEventListener('click', openSidebar);
-  closeBtn?.addEventListener('click', closeSidebar);
-  backdrop?.addEventListener('click', closeSidebar);
-
-  // close on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeSidebar();
-  });
+  // Re-initialize on Astro page transitions if used
+  document.addEventListener('astro:after-swap', initSidebar);
 </script>
