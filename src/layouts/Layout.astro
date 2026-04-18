@@ -29,6 +29,22 @@ const { title = "D'karang Eco Lodge" } = Astro.props;
   </head>
   <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
     <slot />
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/6281238211110?text=Halo%20D'karang%20Eco%20Lodge,%20saya%20ingin%20bertanya."
+      target="_blank"
+      class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"
+      aria-label="Contact us on WhatsApp"
+    >
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.56 5.338-11.898 11.903-11.898 3.181 0 6.173 1.24 8.421 3.488 2.249 2.248 3.489 5.242 3.489 8.41 0 6.561-5.337 11.899-11.902 11.899-2.012 0-3.986-.511-5.741-1.482L0 .057zm5.589-3.111l.403.239c1.528.91 3.513 1.391 5.545 1.391 5.461 0 9.907-4.447 9.907-9.908 0-2.64-1.028-5.122-2.895-6.989-1.867-1.867-4.35-2.895-6.989-2.895-5.463 0-9.909 4.446-9.909 9.908 0 2.115.557 4.18 1.611 5.973l.264.447-.999 3.647 3.737-.98zm11.334-7.106c-.303-.151-1.793-.884-2.071-.985-.278-.101-.48-.151-.681.151-.202.302-.782.985-.959 1.186-.177.201-.353.226-.656.075-.303-.151-1.278-.47-2.435-1.502-.899-.802-1.506-1.792-1.683-2.094-.177-.302-.019-.465.133-.615.136-.135.303-.352.454-.528.151-.177.202-.302.303-.503.101-.201.05-.377-.025-.528-.075-.151-.681-1.641-.933-2.248-.247-.594-.5-.512-.681-.521-.177-.009-.379-.011-.58-.011-.201 0-.53.075-.808.377-.278.302-1.059 1.034-1.059 2.52s1.085 2.924 1.236 3.125c.151.201 2.135 3.259 5.172 4.57.72.311 1.282.497 1.718.637.723.23 1.38.197 1.898.12.579-.086 1.793-.733 2.046-1.441.253-.708.253-1.314.177-1.441-.075-.126-.278-.201-.58-.352z"/>
+      </svg>
+      <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 whitespace-nowrap font-label text-sm font-semibold">
+        WhatsApp Us
+      </span>
+    </a>
+
     <script>
       import AOS from 'aos';
       AOS.init({

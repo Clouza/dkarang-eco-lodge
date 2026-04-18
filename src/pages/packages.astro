@@ -5,55 +5,54 @@ import Footer from '../components/Footer.astro';
 
 const packages = [
   {
-    name: 'Weekend Retreat',
-    duration: '2 Nights / 3 Days',
-    price: 'From IDR 3.500.000',
+    name: 'Standard Garden Retreat',
+    duration: 'Perfect for Solos or Couples',
+    price: 'From IDR 450.000 / Night',
     description:
-      'The perfect short escape. Unwind in our garden villa, enjoy a traditional welcome dinner, and wake to birdsong and jungle mist.',
+      'Experience the tranquility of Undisan in our cozy standard rooms. Featuring lush garden views and traditional Balinese architecture.',
     features: [
-      'Garden View Villa room',
-      'Daily breakfast for 2',
-      'Traditional welcome dinner',
-      'Infinity pool access',
-      'Village walking tour (1 hr)',
+      '24m² Room Size',
+      'Choice of Twin or Double Bed',
+      'Garden View Terrace',
+      'Daily Halal Breakfast',
+      'Free WiFi Access',
     ],
-    icon: 'weekend',
+    icon: 'park',
     highlight: false,
   },
   {
-    name: 'Cultural Immersion',
-    duration: '4 Nights / 5 Days',
-    price: 'From IDR 7.200.000',
+    name: 'Deluxe Pool Escape',
+    duration: 'Our Most Popular Choice',
+    price: 'From IDR 750.000 / Night',
     description:
-      'Dive deep into Balinese life. Cook with our chef, learn traditional offerings, trek the rice terraces of Undisan, and attend a local ceremony.',
+      'Step directly from your room into the refreshing waters of our outdoor pool. These spacious rooms offer the ultimate relaxation.',
     features: [
-      'Jungle View Villa room',
-      'Daily breakfast & dinner',
-      'Balinese cooking class',
-      'Traditional offering workshop',
-      'Guided rice terrace trek',
-      'Local ceremony visit',
-      'Complimentary airport transfer',
+      '30m² Room Size',
+      'Pool Access / Garden View',
+      '1 Single + 1 Double Bed',
+      'Private Terrace / Balcony',
+      'Air Conditioning & Hot Water',
+      'Daily Halal Breakfast',
+      'Poolside Lounging Area',
     ],
-    icon: 'temple_buddhist',
+    icon: 'pool',
     highlight: true,
   },
   {
-    name: 'Family Sanctuary',
-    duration: '5 Nights / 6 Days',
-    price: 'From IDR 12.500.000',
+    name: 'Budget Nature Stay',
+    duration: 'Essential & Comfortable',
+    price: 'From IDR 350.000 / Night',
     description:
-      'A fully curated family experience. Two interconnected villas, child-friendly activities, nature trails, and dedicated family concierge.',
+      'A comfortable base for your Bangli adventures. Our budget rooms provide everything you need for a restful night in nature.',
     features: [
-      '2 interconnected Garden Villas',
-      'Daily breakfast, lunch & dinner',
-      'Guided nature trail (family)',
-      'Kids batik painting workshop',
-      'Infinity pool & garden play area',
-      'Family concierge service',
-      'Complimentary airport transfer',
+      '28m² Room Size',
+      'Large Double Bed',
+      'Lush Garden Surroundings',
+      'Free WiFi Access',
+      'Outdoor Seating Area',
+      'Complimentary Bottled Water',
     ],
-    icon: 'family_restroom',
+    icon: 'eco',
     highlight: false,
   },
 ];
@@ -116,7 +115,8 @@ const packages = [
             <div class="border-t border-outline-variant/40 pt-6">
               <p class="font-headline text-xl text-primary font-bold mb-4">{pkg.price}</p>
               <a
-                href="/contact"
+                href={`https://wa.me/6281238211110?text=Halo%20D'karang%20Eco%20Lodge,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}.`}
+                target="_blank"
                 class={`block w-full text-center rounded-full px-6 py-3 text-sm font-label font-semibold transition-opacity hover:opacity-90 ${pkg.highlight ? 'bg-linear-to-r from-primary to-primary-container text-on-primary' : 'border-2 border-primary text-primary hover:bg-primary hover:text-on-primary'}`}
               >
                 Enquire Now
@@ -138,7 +138,8 @@ const packages = [
       We're happy to tailor an experience around your group, dates, and preferences. Reach out and we'll create something just for you.
     </p>
     <a
-      href="/contact"
+      href="https://wa.me/6281238211110?text=Halo%20D'karang%20Eco%20Lodge,%20saya%20ingin%20bertanya%20tentang%20paket%20kustom."
+      target="_blank"
       class="inline-block bg-linear-to-r from-primary to-primary-container text-on-primary font-label text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
     >
       Contact Us
