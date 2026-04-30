@@ -1,30 +1,8 @@
 ---
-const images = [
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB-l4XVFRTmfOdjnAOMgoyLhBjbiodOKdDJ17-dyoTXIuhFaFsf8grjITu-pa8lq_oWLM9GYff60ktEkTdPIMjxeHPosrwCXrrztNkRMHDbfjzoHkxwjwlZl_dJ2uHxr9QANtr2ohoX3HR-xtTtbxi2tlDWKD7KeiQL6IIOp8Xac3penigVDqBh8XSExUhLH0g00CCEuVEwkRyto6Cj6Ha3E_mzGYo0hloIPmSav_Ii8P_X4ReEEIZoFwTsCj4GtnAbzY42SOFElBY',
-    alt: 'Resort pool at twilight',
-    caption: 'Serene Evenings',
-    colSpan: 'md:col-span-2',
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBGGGOc4KVTzrGQAUjZoIsQz6elElCWg0_EzICnMm1eM-1MxdDsVt9K8DdLIX1yMmYhDAgkAb3kpTPz6-zYP0rIelt8tvlvWXRv5vo1hGW8NBLtTS-ZI-QWuRG9vRcDRWoeKlYZhxa0XMtNLgHJYJ1UFo-sIcwtPgejyq-itdhKAvhF80lCi25JFIAPDM79lWvPtdxABwM51lP8v5mz749Yqv-3YOdG0X1Pn4iMo8j20RLtGwT9nvWL1hpihvAEzsRR2fp8_COmkQcT',
-    alt: 'Modern architecture blending with nature',
-    caption: null,
-    colSpan: '',
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAu92dd62cJLIq_2imG6fe8OjIy15ldNHAVZeJrqaEQp2UoRPxvZRB7gu4iVagm279bzxCckAF5oPBLyo4Qr3ZxPnIF67uLstSy8ZtkSyJk_v2fHFkL6m08FgILeFH_ynEDULkMsTrBBj9DfXTPj-0TBbO1To2L6mPOzYFxjKwdHLiBn1DIY6ZFX26XnofIT9xzST9S7mN2AsYZtzNEpzDHVweUPq3caMpGkHAA2eXX5H-TETDL2JzyzpAyDynSZ5Y97daVALNZbN06',
-    alt: 'Dining setup',
-    caption: null,
-    colSpan: '',
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFTgLpaRrroXGcaHYE99hSy9pecaGq5CMIshiCni9AQ9PwIlCwTb28jDxjNlB79ePUDJYOzJpyn9pzapmNOOWn60HNMt28cme6oQ6jMXyDBVZyLLjG_6EGWey1tfOL3vp6L-OE_fddfKfhK1IqU5zyPeRhstZMIeax-7yAls1GwYVG3AEI6lyu2-T5qfueU6Wpn9FAYt8kzMHcanOHANOYsD4bQtkHNSjRcHuB-lAlGKu_eG7LOGrHO6flRVfS5TJECbpooYGKsAaQ',
-    alt: 'Cozy room interior',
-    caption: 'Restful Sanctuaries',
-    colSpan: 'md:col-span-2',
-  },
-];
+const images = Array.from({ length: 8 }, (_, i) => ({
+  src: `/images/gallery/photo-${i + 1}.jpg`,
+  alt: `D'Karang Eco Lodge — photo ${i + 1}`,
+}));
 ---
 
 <section class="py-16 md:py-24 bg-surface">
@@ -33,51 +11,39 @@ const images = [
       class="font-headline text-3xl md:text-4xl text-primary mb-8 md:mb-12 tracking-wide text-center"
       data-aos="fade-up"
     >
-      Galeri D'karang Eco Lodge
+      Gallery
     </h2>
 
-    <!-- mobile: vertical stack -->
-    <div class="flex flex-col gap-4 md:hidden">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
       {images.map((image, index) => (
         <div
-          class="relative rounded-xl overflow-hidden h-56 group"
-          data-aos="fade-up"
-          data-aos-delay={index * 80}
+          class={`relative rounded-xl overflow-hidden group bg-surface-container-highest flex items-center justify-center ${index === 0 || index === 5 ? 'col-span-2 row-span-2' : ''} aspect-square`}
+          data-aos="zoom-in"
+          data-aos-delay={index * 60}
         >
+          {/* fallback text */}
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-0">
+            <span class="material-symbols-outlined text-on-surface-variant text-3xl font-light">image</span>
+            <p class="font-body text-xs text-on-surface-variant/60">Photo {index + 1}</p>
+          </div>
+          {/* image covers fallback when loaded */}
           <img
             alt={image.alt}
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10"
             src={image.src}
+            onerror="this.style.display='none'"
           />
-          {image.caption && (
-            <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end p-4">
-              <h3 class="font-headline text-xl text-white">{image.caption}</h3>
-            </div>
-          )}
         </div>
       ))}
     </div>
 
-    <!-- desktop: bento grid -->
-    <div class="hidden md:grid md:grid-cols-3 gap-6 auto-rows-75">
-      {images.map((image, index) => (
-        <div
-          class={`${image.colSpan} relative rounded-xl overflow-hidden group`}
-          data-aos="zoom-in"
-          data-aos-delay={index * 100}
-        >
-          <img
-            alt={image.alt}
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            src={image.src}
-          />
-          {image.caption && (
-            <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end p-6">
-              <h3 class="font-headline text-2xl text-white">{image.caption}</h3>
-            </div>
-          )}
-        </div>
-      ))}
+    <div class="text-center mt-10" data-aos="fade-up">
+      <a
+        href="/gallery"
+        class="inline-block border-2 border-primary text-primary font-label text-sm px-8 py-3 rounded-full hover:bg-primary hover:text-on-primary transition-colors"
+      >
+        View Full Gallery
+      </a>
     </div>
   </div>
 </section>

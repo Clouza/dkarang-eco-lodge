@@ -5,83 +5,141 @@ import Footer from '../components/Footer.astro';
 
 const packages = [
   {
-    name: 'Standard Garden Retreat',
-    duration: 'Perfect for Solos or Couples',
-    price: 'From IDR 450.000 / Night',
-    description:
-      'Experience the tranquility of Undisan in our cozy standard rooms. Featuring lush garden views and traditional Balinese architecture.',
-    features: [
-      '24m² Room Size',
-      'Choice of Twin or Double Bed',
-      'Garden View Terrace',
-      'Daily Halal Breakfast',
-      'Free WiFi Access',
+    name: 'One Day Trip',
+    duration: 'The Best of Undisan in a Single Day',
+    description: 'Experience the highlights of Undisan Village in one unforgettable day — culture, nature, and authentic Balinese life.',
+    days: [
+      {
+        label: 'Highlights',
+        items: [
+          'Traditional cooking class',
+          'Rice field tracking',
+          'Canang sari making',
+          'Temple & traditional house visit',
+          'Lunch at D\'Karang',
+        ],
+      },
     ],
-    icon: 'park',
+    icon: 'wb_sunny',
     highlight: false,
   },
   {
-    name: 'Deluxe Pool Escape',
-    duration: 'Our Most Popular Choice',
-    price: 'From IDR 750.000 / Night',
-    description:
-      'Step directly from your room into the refreshing waters of our outdoor pool. These spacious rooms offer the ultimate relaxation.',
-    features: [
-      '30m² Room Size',
-      'Pool Access / Garden View',
-      '1 Single + 1 Double Bed',
-      'Private Terrace / Balcony',
-      'Air Conditioning & Hot Water',
-      'Daily Halal Breakfast',
-      'Poolside Lounging Area',
+    name: '2 Days 1 Night',
+    duration: 'An Overnight Taste of Village Life',
+    description: 'A short but immersive stay — perfect for travellers who want to slow down and connect with the real Bali.',
+    days: [
+      {
+        label: 'Day 1',
+        items: [
+          'Welcoming with a family-like atmosphere',
+          'Cooking class: Balinese soup and satay',
+          'Canang sari making',
+          'Dinner together',
+        ],
+      },
+      {
+        label: 'Day 2',
+        items: [
+          'Breakfast with traditional Balinese food',
+          'Rice field tracking',
+          'Waterfall visit',
+          'Lunch at D\'Karang',
+          'Return journey',
+        ],
+      },
     ],
-    icon: 'pool',
+    icon: 'nights_stay',
+    highlight: false,
+  },
+  {
+    name: '3 Days 2 Nights',
+    duration: 'The Undisan Experience',
+    description: 'Our most complete village experience — nature, culture, craft, and adventure woven into three unforgettable days.',
+    days: [
+      {
+        label: 'Day 1',
+        items: [
+          'Welcoming: greeted with warmth and a family-like atmosphere',
+          'Cooking class: make Balinese soup and satay',
+          'Dinner together',
+        ],
+      },
+      {
+        label: 'Day 2',
+        items: [
+          'Breakfast with traditional Balinese food',
+          'Rice field tracking',
+          'Waterfall visit',
+          'Traditional Balinese house & temple tour',
+          'Lunch at D\'Karang',
+          'Canang sari making',
+          'Coconut oil making',
+          'Meditation',
+          'Dinner',
+        ],
+      },
+      {
+        label: 'Day 3',
+        items: [
+          'Breakfast',
+          'Cycling around Undisan village',
+          'Lunch at a restaurant with rice field & mountain views',
+          'Coffee plantation tour',
+          'Return to D\'Karang',
+          'Flying fox',
+          'Dinner',
+        ],
+      },
+    ],
+    icon: 'explore',
     highlight: true,
   },
   {
-    name: 'Budget Nature Stay',
-    duration: 'Essential & Comfortable',
-    price: 'From IDR 350.000 / Night',
-    description:
-      'A comfortable base for your Bangli adventures. Our budget rooms provide everything you need for a restful night in nature.',
-    features: [
-      '28m² Room Size',
-      'Large Double Bed',
-      'Lush Garden Surroundings',
-      'Free WiFi Access',
-      'Outdoor Seating Area',
-      'Complimentary Bottled Water',
+    name: '4 Days 3 Nights',
+    duration: 'The Full Immersion',
+    description: 'The deepest dive into Undisan — for those who truly want to live the village, not just visit it.',
+    days: [
+      {
+        label: 'Includes Everything in 3D2N, Plus',
+        items: [
+          'Traditional music & dance session',
+          'Coffee plantation tour (extended)',
+          'Flying fox',
+          'Meditation',
+          'Extra free time to explore at your own pace',
+        ],
+      },
     ],
-    icon: 'eco',
+    icon: 'forest',
     highlight: false,
   },
 ];
 ---
 
-<Layout title="Packages | D'karang Eco Lodge">
+<Layout title="Packages | D'Karang Eco Lodge">
   <Navbar activeLink="packages" />
 
   <!-- Page Hero -->
   <header class="pt-32 md:pt-40 pb-12 px-6 md:px-12 bg-surface-container-low">
     <div class="max-w-7xl mx-auto">
       <span class="text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block animate-hero-title">
-        Curated Stays
+        Tour Packages
       </span>
       <h1 class="font-headline text-4xl md:text-6xl font-bold text-on-surface tracking-tight animate-hero-body">
-        Choose Your Sanctuary
+        Choose Your Experience
       </h1>
       <p class="text-on-surface-variant text-base md:text-lg mt-4 max-w-xl animate-hero-cta">
-        Each package is thoughtfully designed to immerse you in the beauty, culture, and tranquility of Undisan Village.
+        Each package is thoughtfully designed to immerse you in the beauty, culture, and authentic life of Undisan Village.
       </p>
     </div>
   </header>
 
   <!-- Packages Grid -->
   <section class="py-20 px-6 md:px-12 bg-surface">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
       {packages.map((pkg, index) => (
         <div
-          class={`relative rounded-2xl flex flex-col overflow-hidden shadow-md transition-transform hover:-translate-y-1 duration-300 ${pkg.highlight ? 'ring-2 ring-primary' : ''}`}
+          class={`relative rounded-2xl flex flex-col overflow-hidden shadow-md transition-transform hover:-translate-y-1 duration-300 ${pkg.highlight ? 'ring-2 ring-primary md:col-span-2' : ''}`}
           data-aos="fade-up"
           data-aos-delay={index * 150}
         >
@@ -91,31 +149,40 @@ const packages = [
             </div>
           )}
           <div class="bg-surface-container-lowest p-8 flex flex-col flex-1">
-            <!-- Icon & Name -->
-            <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center mb-6">
-              <span class="material-symbols-outlined text-on-primary-container text-2xl font-light">
-                {pkg.icon}
-              </span>
+            <div class="flex items-start gap-5 mb-6">
+              <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-on-primary-container text-2xl font-light">
+                  {pkg.icon}
+                </span>
+              </div>
+              <div>
+                <h2 class="font-headline text-2xl font-bold text-on-surface mb-1">{pkg.name}</h2>
+                <p class="text-secondary text-sm font-label">{pkg.duration}</p>
+              </div>
             </div>
-            <h2 class="font-headline text-2xl font-bold text-on-surface mb-1">{pkg.name}</h2>
-            <p class="text-secondary text-sm font-label mb-4">{pkg.duration}</p>
             <p class="text-on-surface-variant text-sm leading-relaxed mb-6">{pkg.description}</p>
 
-            <!-- Features -->
-            <ul class="space-y-2 mb-8 flex-1">
-              {pkg.features.map((f) => (
-                <li class="flex items-start gap-2 text-sm text-on-surface-variant">
-                  <span class="material-symbols-outlined text-primary text-base mt-0.5 shrink-0">check_circle</span>
-                  {f}
-                </li>
+            <!-- Itinerary -->
+            <div class={`flex-1 mb-8 ${pkg.highlight ? 'grid grid-cols-1 md:grid-cols-3 gap-6' : ''}`}>
+              {pkg.days.map((day) => (
+                <div>
+                  <p class="font-label text-xs text-primary uppercase tracking-widest mb-3">{day.label}</p>
+                  <ul class="space-y-2">
+                    {day.items.map((item) => (
+                      <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+                        <span class="material-symbols-outlined text-primary text-base mt-0.5 shrink-0">arrow_right</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <!-- Price & CTA -->
+            <!-- CTA -->
             <div class="border-t border-outline-variant/40 pt-6">
-              <p class="font-headline text-xl text-primary font-bold mb-4">{pkg.price}</p>
               <a
-                href={`https://wa.me/6281238211110?text=Halo%20D'karang%20Eco%20Lodge,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}.`}
+                href={`https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I'm%20interested%20in%20the%20${encodeURIComponent(pkg.name)}%20package.`}
                 target="_blank"
                 class={`block w-full text-center rounded-full px-6 py-3 text-sm font-label font-semibold transition-opacity hover:opacity-90 ${pkg.highlight ? 'bg-linear-to-r from-primary to-primary-container text-on-primary' : 'border-2 border-primary text-primary hover:bg-primary hover:text-on-primary'}`}
               >
@@ -138,7 +205,7 @@ const packages = [
       We're happy to tailor an experience around your group, dates, and preferences. Reach out and we'll create something just for you.
     </p>
     <a
-      href="https://wa.me/6281238211110?text=Halo%20D'karang%20Eco%20Lodge,%20saya%20ingin%20bertanya%20tentang%20paket%20kustom."
+      href="https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I'd%20like%20to%20enquire%20about%20a%20custom%20package."
       target="_blank"
       class="inline-block bg-linear-to-r from-primary to-primary-container text-on-primary font-label text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
     >

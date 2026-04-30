@@ -1,46 +1,52 @@
 ---
-const milestones = [
-  {
-    year: '2015',
-    title: 'The Vision',
-    description: 'Conception of an eco-friendly retreat that honors local architecture and minimizes environmental impact.',
-  },
-  {
-    year: '2018',
-    title: 'Breaking Ground',
-    description: 'Construction begins using locally sourced, sustainable materials and traditional building techniques.',
-  },
-  {
-    year: '2021',
-    title: 'Opening Doors',
-    description: "D'karang Eco Lodge officially opens, welcoming guests to experience harmony with nature.",
-  },
+const facilities = [
+  'Swimming Pool',
+  'Clean & Comfortable Rooms',
+  'Free Wi-Fi',
+  'Meeting Room',
+  'Free-flow Mineral Water',
+  'Daily Breakfast, Lunch & Dinner',
+  'Authentic Balinese Cuisine',
 ];
 ---
 
-<section class="py-24 bg-surface-container-low overflow-hidden">
+<section class="py-16 md:py-24 bg-surface-container-low overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="font-headline text-4xl text-primary mb-4 tracking-wide">Our Heritage</h2>
-      <p class="font-body text-on-surface-variant max-w-2xl mx-auto">
-        The journey of building a sustainable sanctuary rooted in Balinese tradition.
-      </p>
-    </div>
-    <div class="relative border-l-2 border-outline-variant ml-2 md:ml-8">
-      {milestones.map((item, index) => (
-        <div
-          class={`pl-8 relative ${index < milestones.length - 1 ? 'mb-12' : ''}`}
-          data-aos="fade-up"
-          data-aos-delay={index * 150}
-        >
-          <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-2 border-4 border-surface-container-low"></div>
-          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-md">
-            <span class="font-label text-sm text-secondary mb-2 block">{item.year}</span>
-            <h3 class="font-headline text-2xl text-on-surface mb-3">{item.title}</h3>
-            <p class="font-body text-on-surface-variant">{item.description}</p>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div data-aos="fade-right">
+        <h2 class="font-headline text-3xl md:text-4xl text-primary mb-6 tracking-wide">
+          D'Karang Eco Lodge
+        </h2>
+        <p class="font-body text-base md:text-lg text-on-surface-variant mb-8 leading-relaxed">
+          Stay at D'Karang Eco Lodge — a traditional-style retreat designed in harmony with nature.
+          Every guest is not just a visitor, but part of the family.
+        </p>
+        <ul class="space-y-3">
+          {facilities.map((f) => (
+            <li class="flex items-center gap-3 text-on-surface-variant font-body text-sm md:text-base">
+              <span class="material-symbols-outlined text-primary text-base shrink-0">check_circle</span>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-10">
+          <a
+            href="https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I%20would%20like%20to%20book%20a%20stay."
+            target="_blank"
+            class="inline-block bg-linear-to-r from-primary to-primary-container text-on-primary font-label text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity shadow-lg"
+          >
+            Book Your Stay
+          </a>
         </div>
-      ))}
+      </div>
+      <div class="relative" data-aos="fade-left">
+        <img
+          src="/images/accommodation/lodge-exterior.jpg"
+          alt="D'Karang Eco Lodge"
+          class="rounded-xl w-full h-72 sm:h-96 md:h-125 object-cover shadow-lg relative z-10"
+        />
+        <div class="absolute -bottom-6 -right-6 w-2/3 h-2/3 bg-surface-container-highest rounded-xl z-0 hidden md:block"></div>
+      </div>
     </div>
   </div>
 </section>
