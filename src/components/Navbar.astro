@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activeLink?: 'lodge' | 'packages' | 'gallery' | 'contact' | 'about';
+  activeLink?: 'lodge' | 'rooms' | 'packages' | 'gallery' | 'contact' | 'about';
 }
 
 const { activeLink } = Astro.props;
@@ -8,6 +8,7 @@ const { activeLink } = Astro.props;
 const links = [
   { label: 'Lodge', href: '/', key: 'lodge' },
   { label: 'About', href: '/about', key: 'about' },
+  { label: 'Rooms', href: '/rooms', key: 'rooms' },
   { label: 'Packages', href: '/packages', key: 'packages' },
   { label: 'Gallery', href: '/gallery', key: 'gallery' },
   { label: 'Contact', href: '/contact', key: 'contact' },

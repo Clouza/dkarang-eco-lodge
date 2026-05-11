@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const rooms = [
+  {
+    key: 'standard-garden-retreat',
+    name: 'Standard Garden Retreat',
+    tagline: 'Simplicity Surrounded by Nature',
+    description:
+      'A cozy and comfortable room nestled within our lush garden. Perfect for travellers who seek a peaceful stay with authentic village ambiance at an accessible price point.',
+    size: '24 m²',
+    capacity: '2 Guests',
+    bed: 'Queen Bed',
+    view: 'Garden View',
+    icon: 'local_florist',
+    highlight: false,
+    amenities: [
+      'Private bathroom with hot shower',
+      'Garden view terrace',
+      'Air conditioning',
+      'Free Wi-Fi',
+      'Daily breakfast included',
+      'Complimentary drinking water',
+    ],
+  },
+  {
+    key: 'deluxe-pool-escape',
+    name: 'Deluxe Pool Escape',
+    tagline: 'Luxury Meets the Bali Outdoors',
+    description:
+      'Our premium room offering direct access to the pool, paired with elevated interiors and sweeping views. Designed for guests who want to indulge while staying connected to nature.',
+    size: '36 m²',
+    capacity: '2–3 Guests',
+    bed: 'King Bed',
+    view: 'Pool & Valley View',
+    icon: 'pool',
+    highlight: true,
+    amenities: [
+      'Direct pool access',
+      'Private open-air bathroom',
+      'King-size bed with premium linen',
+      'Air conditioning & ceiling fan',
+      'Free Wi-Fi',
+      'Daily breakfast included',
+      'Welcome drink & fruit basket',
+      'In-room safe',
+    ],
+  },
+  {
+    key: 'budget-nature-stay',
+    name: 'Budget Nature Stay',
+    tagline: 'Simple, Clean & Close to Nature',
+    description:
+      'An affordable and honest retreat for the budget-conscious traveller. Clean, well-ventilated, and set amidst the natural beauty of Undisan — everything you need, nothing you don\'t.',
+    size: '18 m²',
+    capacity: '1–2 Guests',
+    bed: 'Single or Twin Bed',
+    view: 'Nature View',
+    icon: 'eco',
+    highlight: false,
+    amenities: [
+      'Shared or private bathroom (choose at booking)',
+      'Natural ventilation with ceiling fan',
+      'Free Wi-Fi',
+      'Complimentary drinking water',
+      'Access to communal garden lounge',
+    ],
+  },
+];
+---
+
+<Layout title="Rooms | D'Karang Eco Lodge">
+  <Navbar activeLink="rooms" />
+
+  <!-- Page Hero -->
+  <header class="pt-32 md:pt-40 pb-12 px-6 md:px-12 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <span class="text-primary uppercase tracking-[0.2em] text-xs font-semibold mb-4 block animate-hero-title">
+        Accommodation
+      </span>
+      <h1 class="font-headline text-4xl md:text-6xl font-bold text-on-surface tracking-tight animate-hero-body">
+        Find Your Room
+      </h1>
+      <p class="text-on-surface-variant text-base md:text-lg mt-4 max-w-xl animate-hero-cta">
+        Three distinct room categories, each designed to offer a different flavour of the D'Karang experience — from barefoot simplicity to poolside luxury.
+      </p>
+    </div>
+  </header>
+
+  <!-- Rooms Grid -->
+  <section class="py-20 px-6 md:px-12 bg-surface">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      {rooms.map((room, index) => (
+        <div
+          class={`relative rounded-2xl flex flex-col overflow-hidden shadow-md transition-transform hover:-translate-y-1 duration-300 ${room.highlight ? 'ring-2 ring-primary' : ''}`}
+          data-aos="fade-up"
+          data-aos-delay={index * 120}
+        >
+          {room.highlight && (
+            <div class="bg-primary text-on-primary text-xs font-label uppercase tracking-widest text-center py-2 px-4">
+              Most Popular
+            </div>
+          )}
+          <div class="bg-surface-container-lowest p-6 flex flex-col flex-1">
+            <!-- Header -->
+            <div class="flex items-start gap-4 mb-5">
+              <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-on-primary-container text-xl font-light">
+                  {room.icon}
+                </span>
+              </div>
+              <div>
+                <h2 class="font-headline text-xl font-bold text-on-surface leading-tight mb-1">{room.name}</h2>
+                <p class="text-secondary text-xs font-label">{room.tagline}</p>
+              </div>
+            </div>
+
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-5">{room.description}</p>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 gap-2 mb-5">
+              {[
+                { icon: 'straighten', label: 'Size', value: room.size },
+                { icon: 'group', label: 'Capacity', value: room.capacity },
+                { icon: 'bed', label: 'Bed', value: room.bed },
+                { icon: 'landscape', label: 'View', value: room.view },
+              ].map((stat) => (
+                <div class="bg-surface-container rounded-xl px-3 py-2.5 flex flex-col gap-0.5">
+                  <span class="material-symbols-outlined text-primary text-sm">{stat.icon}</span>
+                  <p class="text-[10px] text-on-surface-variant font-label uppercase tracking-wide">{stat.label}</p>
+                  <p class="text-xs font-semibold text-on-surface">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <!-- Amenities -->
+            <div class="flex-1 mb-6">
+              <p class="font-label text-[10px] text-primary uppercase tracking-widest mb-2.5">What's Included</p>
+              <ul class="flex flex-col gap-1.5">
+                {room.amenities.map((item) => (
+                  <li class="flex items-start gap-2 text-xs text-on-surface-variant leading-snug">
+                    <span class="material-symbols-outlined text-primary text-sm mt-0.5 shrink-0">check_circle</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="border-t border-outline-variant/40 pt-5 mt-auto">
+              <a
+                href={`https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I'm%20interested%20in%20booking%20the%20${encodeURIComponent(room.name)}%20room.`}
+                target="_blank"
+                class={`block w-full text-center rounded-full px-5 py-2.5 text-sm font-label font-semibold transition-opacity hover:opacity-90 ${room.highlight ? 'bg-linear-to-r from-primary to-primary-container text-on-primary' : 'border-2 border-primary text-primary hover:bg-primary hover:text-on-primary'}`}
+              >
+                Book This Room
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Note CTA -->
+  <section class="py-20 bg-surface-container-low px-6 text-center" data-aos="fade-up">
+    <span class="material-symbols-outlined text-primary-container text-5xl mb-4 block">help_outline</span>
+    <h2 class="font-headline text-3xl md:text-4xl text-on-surface mb-4">
+      Not Sure Which Room to Pick?
+    </h2>
+    <p class="text-on-surface-variant mb-8 max-w-md mx-auto">
+      Our team is happy to recommend the right room based on your group size, budget, and preferences. Just reach out.
+    </p>
+    <a
+      href="https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I'd%20like%20help%20choosing%20the%20right%20room."
+      target="_blank"
+      class="inline-block bg-linear-to-r from-primary to-primary-container text-on-primary font-label text-sm px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+    >
+      Ask Us Anything
+    </a>
+  </section>
+
+  <Footer />
+</Layout>
