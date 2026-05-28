@@ -1,8 +1,14 @@
 ---
-const images = Array.from({ length: 8 }, (_, i) => ({
-  src: `/images/gallery/photo-${i + 1}.jpg`,
-  alt: `D'Karang Eco Lodge — photo ${i + 1}`,
-}));
+import { photos } from '../../data/gallery';
+import Lightbox from '../gallery/Lightbox.astro';
+
+// pick a varied preview: first photo from each of the first 8 categories
+const seen = new Set<string>();
+const preview = photos.filter((p) => {
+  if (seen.has(p.category) || seen.size >= 8) return false;
+  seen.add(p.category);
+  return true;
+});
 ---
 
 <section class="py-16 md:py-24 bg-surface">
@@ -14,25 +20,23 @@ const images = Array.from({ length: 8 }, (_, i) => ({
       Gallery
     </h2>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-      {images.map((image, index) => (
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4" data-aos="fade-up" data-aos-delay="100">
+      {preview.map((photo, index) => (
         <div
-          class={`relative rounded-xl overflow-hidden group bg-surface-container-highest flex items-center justify-center ${index === 0 || index === 5 ? 'col-span-2 row-span-2' : ''} aspect-square`}
-          data-aos="zoom-in"
-          data-aos-delay={index * 60}
+          class={`gallery-item relative rounded-xl overflow-hidden group cursor-pointer ${index === 0 || index === 5 ? 'col-span-2 row-span-2' : ''} aspect-square`}
+          data-category={photo.category}
         >
-          {/* fallback text */}
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-0">
-            <span class="material-symbols-outlined text-on-surface-variant text-3xl font-light">image</span>
-            <p class="font-body text-xs text-on-surface-variant/60">Photo {index + 1}</p>
-          </div>
-          {/* image covers fallback when loaded */}
+          <div class="gallery-skeleton skeleton-shimmer absolute inset-0" aria-hidden="true" />
           <img
-            alt={image.alt}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10"
-            src={image.src}
-            onerror="this.style.display='none'"
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            class="gallery-img absolute inset-0 w-full h-full object-cover opacity-0 transition-[opacity,transform] duration-500 group-hover:scale-105"
           />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <span class="font-headline text-sm text-white drop-shadow-md">{photo.category}</span>
+          </div>
         </div>
       ))}
     </div>
@@ -47,3 +51,63 @@ const images = Array.from({ length: 8 }, (_, i) => ({
     </div>
   </div>
 </section>
+
+<Lightbox />
+
+<script>
+  document.querySelectorAll<HTMLImageElement>('.gallery-img').forEach((img) => {
+    const reveal = () => {
+      img.classList.add('opacity-100');
+      img.classList.remove('opacity-0');
+      img.closest('.gallery-item')?.querySelector('.gallery-skeleton')?.remove();
+    };
+    if (img.complete && img.naturalWidth > 0) {
+      reveal();
+    } else {
+      img.addEventListener('load', reveal, { once: true });
+      img.addEventListener('error', reveal, { once: true });
+    }
+  });
+
+  const items     = document.querySelectorAll<HTMLElement>('.gallery-item');
+  const lightbox  = document.getElementById('lightbox')!;
+  const lbImg     = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lightbox-caption')!;
+  const lbClose   = document.getElementById('lightbox-close')!;
+  const lbPrev    = document.getElementById('lightbox-prev')!;
+  const lbNext    = document.getElementById('lightbox-next')!;
+  const lbBackdrop = document.getElementById('lightbox-backdrop')!;
+
+  let currentIndex = 0;
+
+  function openLightbox(index: number) {
+    const all = Array.from(items);
+    currentIndex = (index + all.length) % all.length;
+    const img = all[currentIndex].querySelector<HTMLImageElement>('.gallery-img')!;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = img.alt;
+    lightbox.classList.remove('opacity-0', 'pointer-events-none');
+    lightbox.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('opacity-0', 'pointer-events-none');
+    lightbox.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+  lbClose.addEventListener('click', closeLightbox);
+  lbBackdrop.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => openLightbox(currentIndex - 1));
+  lbNext.addEventListener('click', () => openLightbox(currentIndex + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('opacity-0')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  openLightbox(currentIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(currentIndex + 1);
+  });
+</script>

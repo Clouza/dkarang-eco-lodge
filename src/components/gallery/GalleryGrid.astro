@@ -1,64 +1,6 @@
 ---
-const categories = ['All', 'Pool & Garden', 'Rooms', 'Dining', 'Nature'];
-
-const photos = [
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAB-l4XVFRTmfOdjnAOMgoyLhBjbiodOKdDJ17-dyoTXIuhFaFsf8grjITu-pa8lq_oWLM9GYff60ktEkTdPIMjxeHPosrwCXrrztNkRMHDbfjzoHkxwjwlZl_dJ2uHxr9QANtr2ohoX3HR-xtTtbxi2tlDWKD7KeiQL6IIOp8Xac3penigVDqBh8XSExUhLH0g00CCEuVEwkRyto6Cj6Ha3E_mzGYo0hloIPmSav_Ii8P_X4ReEEIZoFwTsCj4GtnAbzY42SOFElBY',
-    alt: 'Resort infinity pool at twilight',
-    label: 'Serene Evenings',
-    category: 'Pool & Garden',
-    wide: true,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBGGGOc4KVTzrGQAUjZoIsQz6elElCWg0_EzICnMm1eM-1MxdDsVt9K8DdLIX1yMmYhDAgkAb3kpTPz6-zYP0rIelt8tvlvWXRv5vo1hGW8NBLtTS-ZI-QWuRG9vRcDRWoeKlYZhxa0XMtNLgHJYJ1UFo-sIcwtPgejyq-itdhKAvhF80lCi25JFIAPDM79lWvPtdxABwM51lP8v5mz749Yqv-3YOdG0X1Pn4iMo8j20RLtGwT9nvWL1hpihvAEzsRR2fp8_COmkQcT',
-    alt: 'Eco architecture blending with nature',
-    label: 'Natural Harmony',
-    category: 'Nature',
-    wide: false,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAu92dd62cJLIq_2imG6fe8OjIy15ldNHAVZeJrqaEQp2UoRPxvZRB7gu4iVagm279bzxCckAF5oPBLyo4Qr3ZxPnIF67uLstSy8ZtkSyJk_v2fHFkL6m08FgILeFH_ynEDULkMsTrBBj9DfXTPj-0TBbO1To2L6mPOzYFxjKwdHLiBn1DIY6ZFX26XnofIT9xzST9S7mN2AsYZtzNEpzDHVweUPq3caMpGkHAA2eXX5H-TETDL2JzyzpAyDynSZ5Y97daVALNZbN06',
-    alt: 'Elegant dining table setup',
-    label: 'Farm-to-Table Dining',
-    category: 'Dining',
-    wide: false,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFTgLpaRrroXGcaHYE99hSy9pecaGq5CMIshiCni9AQ9PwIlCwTb28jDxjNlB79ePUDJYOzJpyn9pzapmNOOWn60HNMt28cme6oQ6jMXyDBVZyLLjG_6EGWey1tfOL3vp6L-OE_fddfKfhK1IqU5zyPeRhstZMIeax-7yAls1GwYVG3AEI6lyu2-T5qfueU6Wpn9FAYt8kzMHcanOHANOYsD4bQtkHNSjRcHuB-lAlGKu_eG7LOGrHO6flRVfS5TJECbpooYGKsAaQ',
-    alt: 'Cozy boutique lodge room',
-    label: 'Restful Sanctuaries',
-    category: 'Rooms',
-    wide: true,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAyFwOicHcmvDlM-NAuzfoyljmNkitr0HJMYfDEvche62VNrQmpV0sFBYB0fDiHRooeuaqQBktskM4beNiYjk3dIypYrMzMBwnuOIKpknojd7XFe0xhnCxyCSHxshlfNNFXHBpCTf4fEHYWlKaipB62d9VJaHbEKv9tyb_Qxli2JTsTBLDYktZUw9gVXq9x_Bn1otLTPLl9gK7r6rVFnpZNZPEWBphF0c8RprKQqSROuh6rrmVcln2MozmsfUc7dn4Hz9yTAiLX6LTv',
-    alt: 'Bedroom with wooden finishes and warm light',
-    label: 'Natural Interiors',
-    category: 'Rooms',
-    wide: false,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCDhZE5aTKffTn6e2PSm1Lp5arrW0IZjK1RXiMQDFaf-cqaop5Ou5gl4vUs4DV-oxTzV183MQR6Fnqzu7Ig3F3s0j5mEKUkZcCfEToL3nsLa4gNC2I0bGaFJLVvyD1uBZCm1dqwuTPu-GbspNPnMcZBipr3jsRItmZ7CIz3aTJ3RFWemqF5qhUhcaKgMktSZcx3Xm2xUZi5sGeySgKLrtKjPnbflH3VyGc1Awc7rU5-NGO2_n8LLwbKCY1ZiIdfblk7GRi6YZpWcdVo',
-    alt: 'Tropical pool surrounded by jungle',
-    label: 'Jungle Pool',
-    category: 'Pool & Garden',
-    wide: false,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0PFwhmnn5iFi_6oECZGz-_e86qgQNPRUrOWASOC15VBAXolyX0BhxZORwWEOlss59nAXLC14AxzU0QuSj3_HNkPuyM3VBMYjdyZISms0jOWMifAGr_dnC65wK-LK9JjwR-B6jGxXEWQgTUP9aV51XUhWTEiH5yLkeT4LomE-jRHHLo_anMFqp4amyr1PkA-vIbefPSp3TrguD1RV0uajsGtT-mELsjUePHCQOVrZ9sXERzR8v4wXVATTrEWL4BWX_hkwegoTP86lB',
-    alt: 'Rice terraces at golden hour',
-    label: 'Undisan Landscape',
-    category: 'Nature',
-    wide: true,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAy7jDDDeUzYUpCs5PlYIwmUkVQJHlJFJ4utOdXs8uLCfRfygrahOZXIK79c0kuAH5gm7F_fQrSgdYrtYQ4_E80DovB-jhP0EBIBrPp8Jbnt_xdNN3W399Tvr7xgLToX5sX4KpDymRdbxgex8j2JAmEKDylVlk60U2q5Xx_ZSX8kpVDHfaJMxdz_eO2_8AK1fWmSNklTJkU2H9Az-wPuyaaZPVSvc4sjTEa5izdfWUvxF2wWRWRrYKTa3ZosYPvXB7dIoWoK60w6RVE',
-    alt: 'Intricately carved wooden door',
-    label: 'Balinese Craftsmanship',
-    category: 'Nature',
-    wide: false,
-  },
-];
+import { photos, categories } from '../../data/gallery';
+import Lightbox from './Lightbox.astro';
 ---
 
 <!-- Category filter -->
@@ -74,45 +16,126 @@ const photos = [
 </div>
 
 <!-- Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="gallery-grid">
-  {photos.map((photo, index) => (
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="gallery-grid" data-aos="fade-up" data-aos-delay="100">
+  {photos.map((photo) => (
     <div
       class={`gallery-item relative rounded-xl overflow-hidden group cursor-pointer ${photo.wide ? 'sm:col-span-2' : ''} h-64 sm:h-72`}
       data-category={photo.category}
-      data-aos="zoom-in"
-      data-aos-delay={index * 60}
     >
+      <!-- skeleton shown while image loads -->
+      <div class="gallery-skeleton skeleton-shimmer absolute inset-0" aria-hidden="true" />
+
       <img
         src={photo.src}
         alt={photo.alt}
-        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        class="gallery-img relative w-full h-full object-cover opacity-0 transition-[opacity,transform] duration-500 group-hover:scale-105"
       />
-      <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-        <span class="font-headline text-lg text-white">{photo.label}</span>
+      <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+        <span class="font-headline text-lg text-white drop-shadow-md">{photo.alt}</span>
       </div>
     </div>
   ))}
 </div>
 
+<Lightbox />
+
 <script>
+  // --- skeleton reveal ---
+  document.querySelectorAll<HTMLImageElement>('.gallery-img').forEach((img) => {
+    const reveal = () => {
+      img.classList.add('opacity-100');
+      img.classList.remove('opacity-0');
+      img.closest('.gallery-item')?.querySelector('.gallery-skeleton')?.remove();
+    };
+    if (img.complete && img.naturalWidth > 0) {
+      reveal();
+    } else {
+      img.addEventListener('load', reveal, { once: true });
+      img.addEventListener('error', reveal, { once: true });
+    }
+  });
+
+  // --- filter ---
   const filters = document.querySelectorAll<HTMLButtonElement>('.gallery-filter');
-  const items = document.querySelectorAll<HTMLElement>('.gallery-item');
+  const items   = document.querySelectorAll<HTMLElement>('.gallery-item');
+
+  const activeClasses   = ['bg-primary', 'text-on-primary', 'border-primary'];
+  const inactiveClasses = ['bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant', 'hover:border-primary', 'hover:text-primary'];
 
   filters.forEach((btn) => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter ?? 'All';
 
       filters.forEach((b) => {
-        b.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
-        b.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant');
+        b.classList.remove(...activeClasses);
+        b.classList.add(...inactiveClasses);
       });
-      btn.classList.add('bg-primary', 'text-on-primary', 'border-primary');
-      btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant');
+      btn.classList.add(...activeClasses);
+      btn.classList.remove(...inactiveClasses);
 
       items.forEach((item) => {
         const match = filter === 'All' || item.dataset.category === filter;
         item.style.display = match ? '' : 'none';
       });
     });
+  });
+
+  // --- lightbox ---
+  const lightbox   = document.getElementById('lightbox')!;
+  const lbImg      = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lbCaption  = document.getElementById('lightbox-caption')!;
+  const lbClose    = document.getElementById('lightbox-close')!;
+  const lbPrev     = document.getElementById('lightbox-prev')!;
+  const lbNext     = document.getElementById('lightbox-next')!;
+  const lbBackdrop = document.getElementById('lightbox-backdrop')!;
+
+  let currentIndex = 0;
+
+  function visibleItems(): HTMLElement[] {
+    return Array.from(items).filter((el) => el.style.display !== 'none');
+  }
+
+  function openLightbox(index: number) {
+    const visible = visibleItems();
+    if (!visible.length) return;
+    currentIndex = (index + visible.length) % visible.length;
+
+    const img = visible[currentIndex].querySelector<HTMLImageElement>('.gallery-img')!;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = img.alt;
+
+    lightbox.classList.remove('opacity-0', 'pointer-events-none');
+    lightbox.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('opacity-0', 'pointer-events-none');
+    lightbox.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+
+  // open on item click
+  items.forEach((item) => {
+    item.addEventListener('click', () => {
+      const visible = visibleItems();
+      const visibleIndex = visible.indexOf(item);
+      if (visibleIndex !== -1) openLightbox(visibleIndex);
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbBackdrop.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => openLightbox(currentIndex - 1));
+  lbNext.addEventListener('click', () => openLightbox(currentIndex + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('opacity-0')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  openLightbox(currentIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(currentIndex + 1);
   });
 </script>
