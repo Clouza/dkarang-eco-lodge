@@ -1,13 +1,12 @@
 ---
 interface Props {
-  activeLink?: 'lodge' | 'rooms' | 'packages' | 'gallery' | 'contact' | 'about';
+  activeLink?: 'lodge' | 'rooms' | 'packages' | 'gallery' | 'contact';
 }
 
 const { activeLink } = Astro.props;
 
 const links = [
   { label: 'Lodge', href: '/', key: 'lodge' },
-  { label: 'About', href: '/about', key: 'about' },
   { label: 'Rooms', href: '/rooms', key: 'rooms' },
   { label: 'Packages', href: '/packages', key: 'packages' },
   { label: 'Gallery', href: '/gallery', key: 'gallery' },
@@ -63,13 +62,13 @@ const links = [
 <!-- Backdrop -->
 <div
   id="sidebar-backdrop"
-  class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  class="fixed inset-0 z-60 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
 ></div>
 
 <!-- Sidebar -->
 <aside
   id="sidebar"
-  class="fixed top-0 right-0 z-[70] h-full w-72 bg-surface shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-out md:hidden"
+  class="fixed top-0 right-0 z-70 h-full w-72 bg-surface shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-out md:hidden"
 >
   <!-- Sidebar header -->
   <div class="flex justify-between items-center px-6 py-5 border-b border-outline-variant/30">

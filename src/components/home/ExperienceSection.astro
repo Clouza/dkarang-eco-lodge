@@ -1,59 +1,59 @@
 ---
 const activities = [
   {
-    slug: 'traditional-cooking-class',
+    icon: 'self_improvement',
+    title: 'Spiritual Healing & Blessing',
+    caption: 'Palm reading, positive energy transfer & blessing ceremony at Bale Dangin',
+  },
+  {
+    icon: 'restaurant',
     title: 'Traditional Cooking Class',
-    caption: 'Learn to make sate lilit, Balinese soup, traditional snacks & vegetables',
+    caption: 'Learn to make sate lilit, Balinese snacks & kue laklak',
   },
   {
-    slug: 'canang-sari-making',
+    icon: 'volunteer_activism',
     title: 'Canang Sari Making',
-    caption: 'Craft a sacred Balinese offering',
+    caption: 'Craft a sacred daily Balinese Hindu offering',
   },
   {
-    slug: 'coconut-oil-making',
+    icon: 'agriculture',
+    title: 'Farming Activity',
+    caption: 'Hands-on traditional Balinese farming experience',
+  },
+  {
+    icon: 'water_drop',
     title: 'Coconut Oil Making',
-    caption: 'A hands-on traditional process',
+    caption: 'From fresh coconut to finished oil — a traditional process',
   },
   {
-    slug: 'traditional-music-dance',
+    icon: 'music_note',
     title: 'Traditional Music & Dance',
-    caption: 'Move and play like a true Balinese',
+    caption: 'Learn gamelan and move like a true Balinese',
   },
   {
-    slug: 'rice-field-tracking',
-    title: 'Rice Field Tracking',
-    caption: 'Walk through lush green rice fields',
+    icon: 'hiking',
+    title: 'Village Trekking',
+    caption: 'Explore the village, rice fields, bamboo bridges & Tangkup Waterfall',
   },
   {
-    slug: 'cycling-the-village',
-    title: 'Cycling the Village',
-    caption: 'Explore peaceful countryside paths',
+    icon: 'directions_bike',
+    title: 'Eco Cycling Tour',
+    caption: 'Ride through pine forests, coffee plantations & orange orchards',
   },
   {
-    slug: 'waterfall-visit',
-    title: 'Waterfall Visit',
-    caption: 'Cool off in natural beauty',
+    icon: 'paragliding',
+    title: 'Flying Fox (Zipline)',
+    caption: 'A rush of adrenaline high above the valley',
   },
   {
-    slug: 'temple-traditional-house-visit',
+    icon: 'temple_hindu',
     title: 'Temple & Traditional House Visit',
-    caption: 'Discover local life and spirituality',
+    caption: 'Discover Pura Kehen, Pura Besakih & Balinese compound life',
   },
   {
-    slug: 'coffee-plantation-tour',
+    icon: 'local_cafe',
     title: 'Coffee Plantation Tour',
-    caption: 'Meet the coffee, from plant to cup',
-  },
-  {
-    slug: 'flying-fox',
-    title: 'Flying Fox',
-    caption: 'A rush of adrenaline in the middle of nature',
-  },
-  {
-    slug: 'meditation',
-    title: 'Meditation',
-    caption: 'Find stillness in the heart of the village',
+    caption: 'Visit Luwak coffee and local orange farms',
   },
 ];
 ---
@@ -69,30 +69,21 @@ const activities = [
     <p class="font-body text-on-surface-variant text-center mb-12 max-w-xl mx-auto" data-aos="fade-up">
       Immerse yourself in the authentic rhythm of Balinese village life.
     </p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {activities.map((item, index) => (
         <div
-          class="relative rounded-xl overflow-hidden group aspect-4/3 bg-surface-container-highest flex items-center justify-center"
+          class="flex items-start gap-4 bg-surface-container-lowest rounded-2xl px-5 py-4 shadow-sm"
           data-aos="fade-up"
-          data-aos-delay={index * 60}
+          data-aos-delay={index * 50}
         >
-          {/* fallback text — visible only when image fails to load */}
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-5 text-center z-0">
-            <span class="material-symbols-outlined text-on-surface-variant text-4xl font-light">image</span>
-            <p class="font-headline text-base text-on-surface-variant leading-tight">{item.title}</p>
-            <p class="font-body text-xs text-on-surface-variant/70 leading-snug">{item.caption}</p>
+          <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-on-primary-container text-lg font-light">
+              {item.icon}
+            </span>
           </div>
-          {/* image covers fallback when loaded */}
-          <img
-            src={`/images/activities/${item.slug}.jpg`}
-            alt={item.title}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10"
-            onerror="this.style.display='none'"
-          />
-          {/* caption overlay on top of image */}
-          <div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-5 z-20 pointer-events-none">
-            <h3 class="font-headline text-lg text-white leading-tight mb-1">{item.title}</h3>
-            <p class="font-body text-sm text-white/80 leading-snug">{item.caption}</p>
+          <div>
+            <h3 class="font-headline text-sm font-bold text-on-surface leading-tight mb-1">{item.title}</h3>
+            <p class="font-body text-xs text-on-surface-variant leading-snug">{item.caption}</p>
           </div>
         </div>
       ))}

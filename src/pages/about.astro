@@ -1,18 +1,3 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import AboutHero from '../components/about/AboutHero.astro';
-import OurStorySection from '../components/about/OurStorySection.astro';
-import ValuesSection from '../components/about/ValuesSection.astro';
-import TeamSection from '../components/about/TeamSection.astro';
+return Astro.redirect('/', 301);
 ---
-
-<Layout title="About Us | D'karang Eco Lodge">
-  <Navbar activeLink="about" />
-  <AboutHero />
-  <OurStorySection />
-  <ValuesSection />
-  <TeamSection />
-  <Footer />
-</Layout>

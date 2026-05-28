@@ -4,9 +4,12 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 const contactInfo = [
-  { icon: 'location_on', label: 'Address', value: 'Jl. Raya Besakih, Undisan, Kec. Tembuku, Kabupaten Bangli, Bali 80671' },
-  { icon: 'call', label: 'Phone / WhatsApp', value: '+62 812-3821-1110', href: 'https://wa.me/6281238211110' },
-  { icon: 'mail', label: 'Email', value: 'hello@dkaranglodge.com' },
+  { icon: 'location_on', label: 'Lodge Address', value: 'Desa Undisan Klod, Tembuku, Bangli, Bali, Indonesia' },
+  { icon: 'store', label: 'Sales Office', value: 'Jalan Nangka Gang Perkutu No.2, Denpasar – Bali' },
+  { icon: 'call', label: 'Mobile / WhatsApp', value: '+62 812-3821-1110 / +62 812-4610-261', href: 'https://wa.me/6281238211110' },
+  { icon: 'phone', label: 'Office Phone', value: '0361 232862 / 8956880' },
+  { icon: 'mail', label: 'General Enquiry', value: 'info@bbmtours.com' },
+  { icon: 'bookmark', label: 'Reservations', value: 'reservation@bbmtours.com' },
   { icon: 'schedule', label: 'Reception Hours', value: 'Daily, 08.00 – 20.00 WITA' },
 ];
 ---
@@ -102,10 +105,17 @@ const contactInfo = [
               name="package"
               class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition"
             >
-              <option value="">Select a package</option>
-              <option value="standard">Standard Garden Retreat</option>
-              <option value="deluxe">Deluxe Pool Escape</option>
-              <option value="budget">Budget Nature Stay</option>
+              <option value="">Select a package or room</option>
+              <option value="standard-pool-view">Standard Pool View Room</option>
+              <option value="superior-pool-view">Superior Pool View Room</option>
+              <option value="deluxe-pool-view">Deluxe Pool View Room</option>
+              <option value="deluxe-garden-view">Deluxe Garden View Room</option>
+              <option value="one-day-trip">One Day Trip — D'Karang Activities</option>
+              <option value="3d2n-authentic">3D2N — Authentic Balinese Village Experience</option>
+              <option value="3d2n-vw-safari">3D2N — VW Safari Undisan Village</option>
+              <option value="3d2n-guliang">3D2N — Guliang & D'Karang</option>
+              <option value="4d3n-guliang">4D3N — Guliang & D'Karang</option>
+              <option value="4d3n-new">4D3N — New D'Karang Package</option>
               <option value="custom">Custom Package</option>
               <option value="general">General Enquiry</option>
             </select>
@@ -163,7 +173,7 @@ const contactInfo = [
         <!-- Map placeholder -->
         <div class="rounded-2xl overflow-hidden h-64 bg-surface-container-high relative flex items-center justify-center">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.3!2d115.3662!3d-8.3984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21b0e7a97c6e7%3A0x1!2sJl.+Raya+Besakih%2C+Undisan%2C+Tembuku%2C+Bangli%2C+Bali!5e0!3m2!1sen!2sid!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31572.4556759901!2d115.37404737944615!3d-8.445091511509757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21a30977a7115%3A0x5030bfbca830240!2sUndisan%2C%20Kec.%20Tembuku%2C%20Kabupaten%20Bangli%2C%20Bali!5e0!3m2!1sid!2sid!4v1779966155989!5m2!1sid!2sid"
             class="w-full h-full border-0"
             allowfullscreen
             loading="lazy"

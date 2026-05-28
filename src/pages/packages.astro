@@ -6,17 +6,19 @@ import Footer from '../components/Footer.astro';
 const packages = [
   {
     name: 'One Day Trip',
-    duration: 'The Best of Undisan in a Single Day',
-    description: 'Experience the highlights of Undisan Village in one unforgettable day — culture, nature, and authentic Balinese life.',
+    duration: 'D\'Karang Activities',
+    description: 'A full-day program perfect for groups and team building — combining culture, adventure, and the authentic life of Undisan Village.',
     days: [
       {
         label: 'Highlights',
         items: [
-          'Traditional cooking class',
-          'Rice field tracking',
-          'Canang sari making',
-          'Temple & traditional house visit',
-          'Lunch at D\'Karang',
+          'Team building activities — collaboration, motivation, and group dynamics',
+          'Village Walk — rice fields, footpaths, bamboo bridge, waterfall',
+          'Flying Fox (Zipline) — test your nerve and build team spirit',
+          'Snack & welcome drink',
+          'Lunch included',
+          'Fresh young coconut drinks',
+          'Entrance tickets, guide & team support',
         ],
       },
     ],
@@ -24,70 +26,37 @@ const packages = [
     highlight: false,
   },
   {
-    name: '2 Days 1 Night',
-    duration: 'An Overnight Taste of Village Life',
-    description: 'A short but immersive stay — perfect for travellers who want to slow down and connect with the real Bali.',
-    days: [
-      {
-        label: 'Day 1',
-        items: [
-          'Welcoming with a family-like atmosphere',
-          'Cooking class: Balinese soup and satay',
-          'Canang sari making',
-          'Dinner together',
-        ],
-      },
-      {
-        label: 'Day 2',
-        items: [
-          'Breakfast with traditional Balinese food',
-          'Rice field tracking',
-          'Waterfall visit',
-          'Lunch at D\'Karang',
-          'Return journey',
-        ],
-      },
-    ],
-    icon: 'nights_stay',
-    highlight: false,
-  },
-  {
     name: '3 Days 2 Nights',
-    duration: 'The Undisan Experience',
-    description: 'Our most complete village experience — nature, culture, craft, and adventure woven into three unforgettable days.',
+    duration: 'Authentic Balinese Village Experience',
+    description: 'Culture, nature and tradition woven into three immersive days — from spiritual healing in Guliang to trekking, cooking, and cycling through Undisan.',
     days: [
       {
         label: 'Day 1',
         items: [
-          'Welcoming: greeted with warmth and a family-like atmosphere',
-          'Cooking class: make Balinese soup and satay',
-          'Dinner together',
+          'Hotel pick-up → Guliang Village: spiritual healing & blessing, palm reading, canang making, farming activity',
+          'Lunch',
+          'Visit Penglipuran Traditional Village',
+          'Arrival at D\'Karang — cooking class: Sate Lilit',
+          'Dinner & overnight',
         ],
       },
       {
         label: 'Day 2',
         items: [
-          'Breakfast with traditional Balinese food',
-          'Rice field tracking',
-          'Waterfall visit',
-          'Traditional Balinese house & temple tour',
+          'Traditional breakfast',
+          'Village trekking: Balinese traditional compound, jewellery smith, Tangkup Waterfall',
           'Lunch at D\'Karang',
-          'Canang sari making',
-          'Coconut oil making',
-          'Meditation',
-          'Dinner',
+          'Afternoon: Flying Fox (Zipline)',
+          'Traditional Balinese cake making: laklak',
+          'Dinner & overnight',
         ],
       },
       {
         label: 'Day 3',
         items: [
-          'Breakfast',
-          'Cycling around Undisan village',
-          'Lunch at a restaurant with rice field & mountain views',
-          'Coffee plantation tour',
-          'Return to D\'Karang',
-          'Flying fox',
-          'Dinner',
+          'Traditional breakfast',
+          'Cycling tour: pine forest → knife smith → Luwak coffee plantation → local orange orchard',
+          'Transfer out',
         ],
       },
     ],
@@ -95,22 +64,172 @@ const packages = [
     highlight: true,
   },
   {
-    name: '4 Days 3 Nights',
-    duration: 'The Full Immersion',
-    description: 'The deepest dive into Undisan — for those who truly want to live the village, not just visit it.',
+    name: '3 Days 2 Nights',
+    duration: 'VW Safari — Undisan Village',
+    description: 'An iconic journey aboard a vintage VW Safari, exploring Balinese culture and authentic village life in Undisan — complete with temple visits, cooking, and trekking.',
     days: [
       {
-        label: 'Includes Everything in 3D2N, Plus',
+        label: 'Day 1',
         items: [
-          'Traditional music & dance session',
-          'Coffee plantation tour (extended)',
-          'Flying fox',
-          'Meditation',
-          'Extra free time to explore at your own pace',
+          'Pick-up at 09.00 by VW Safari → Penglipuran Village & Pura Kehen (11th-century temple)',
+          'Lunch at local restaurant with freshwater fish',
+          'Arrival at D\'Karang — group cooking class for dinner',
+          'Overnight at D\'Karang',
+        ],
+      },
+      {
+        label: 'Day 2',
+        items: [
+          'Traditional breakfast',
+          'Village trekking: Balinese traditional compound, local primary school visit, Tangkup Waterfall (±25 m)',
+          'Traditional lunch',
+          'Afternoon: canang sari (Balinese Hindu offering) making',
+          'Traditional coconut oil making (from fresh coconut to finished oil)',
+          'Traditional dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 3',
+        items: [
+          'Traditional breakfast',
+          'Choose one: Eco Cycling Tour (pine forest → Luwak coffee → orange orchard → Tukad Cepung Waterfall) OR Flying Fox (Zipline)',
+          'Transfer out',
+        ],
+      },
+    ],
+    icon: 'directions_car',
+    highlight: false,
+  },
+  {
+    name: '3 Days 2 Nights',
+    duration: 'Guliang & D\'Karang',
+    description: 'Combines spiritual healing in Guliang with nature, culture, and adventure in Undisan — plus visits to Besakih Temple and the Kintamani highlands.',
+    days: [
+      {
+        label: 'Day 1',
+        items: [
+          'Pick-up at 09.00 by VW Safari (from Ubud or Sanur area)',
+          'Guliang Village: palm reading, positive energy transfer, canang making, blessing, farming',
+          'Lunch → Penglipuran Village',
+          'Arrival at D\'Karang, trekking to Tangkup Waterfall',
+          'Cooking class, dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 2',
+        items: [
+          'Breakfast at D\'Karang',
+          'Cooking class: Balinese snacks & traditional music session',
+          'Flying Fox (Zipline) & local coffee plantation visit',
+          'Lunch at Mahagiri Restaurant (view of Gunung Agung)',
+          'Visit Pura Besakih & Kintamani',
+          'Return to D\'Karang — coconut oil making',
+          'Dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 3',
+        items: [
+          'Breakfast',
+          'Cycling tour: pine forest → orange orchard Landih Village → D\'Karang',
+          'Lunch at D\'Karang',
+          'Check out, transfer to next destination',
+        ],
+      },
+    ],
+    icon: 'temple_hindu',
+    highlight: false,
+  },
+  {
+    name: '4 Days 3 Nights',
+    duration: 'Guliang & D\'Karang',
+    description: 'The extended version — an extra night and dedicated day for Besakih and Kintamani, making this the most complete D\'Karang journey available.',
+    days: [
+      {
+        label: 'Day 1',
+        items: [
+          'Arrival in Bali, picked up by D\'Karang team',
+          'Travel to Undisan Village, welcome drink',
+          'Dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 2',
+        items: [
+          'Breakfast → VW Safari to Guliang Village: palm reading, blessing, canang, farming',
+          'Lunch → Pura Kehen (11th-century Hindu temple, Bangli)',
+          'Return to D\'Karang — afternoon trekking: traditional compound, rice fields, Tangkup Waterfall',
+          'Laklak cake making → Sate Lilit cooking class',
+          'Dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 3',
+        items: [
+          'Breakfast',
+          'Balinese snack cooking class & traditional music',
+          'Flying Fox (Zipline) & local coffee plantation',
+          'Lunch at Mahagiri Restaurant (Gunung Agung view)',
+          'Visit Pura Besakih & Kintamani',
+          'Return to D\'Karang, dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 4',
+        items: [
+          'Breakfast',
+          'Cycling: pine forest → knife smith → orange orchard Landih Village',
+          'Lunch at D\'Karang',
+          'Check out, transfer to next destination',
         ],
       },
     ],
     icon: 'forest',
+    highlight: false,
+  },
+  {
+    name: '4 Days 3 Nights',
+    duration: 'New D\'Karang Package',
+    description: 'A fresh itinerary with a scenic final-day transfer via Teraz Agro Coffee Plantation — and an optional Bali Swing to close out the adventure.',
+    days: [
+      {
+        label: 'Day 1',
+        items: [
+          'Arrival in Bali, transfer to Undisan Village',
+          'Welcome drink, dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 2',
+        items: [
+          'Breakfast → VW Safari to Guliang Village: spiritual healing & blessing, canang, farming',
+          'Lunch → Pura Kehen',
+          'Return to D\'Karang — trekking: traditional compound, rice fields, Tangkup Waterfall',
+          'Laklak cake making → Sate Lilit cooking class',
+          'Dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 3',
+        items: [
+          'Traditional breakfast',
+          'Cycling: pine forest → knife smith → local orange orchard',
+          'Lunch with views of rice fields and Gunung Agung',
+          'Visit Pura Besakih & Kintamani',
+          'Return to D\'Karang, dinner & overnight',
+        ],
+      },
+      {
+        label: 'Day 4',
+        items: [
+          'Traditional breakfast',
+          'Transfer out with a stop at Teraz Agro Coffee Plantation',
+          'Optional: Bali Swing',
+          'Transfer to next destination',
+        ],
+      },
+    ],
+    icon: 'coffee',
     highlight: false,
   },
 ];
@@ -182,7 +301,7 @@ const packages = [
             <!-- CTA -->
             <div class="border-t border-outline-variant/40 pt-5 mt-auto">
               <a
-                href={`https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I'm%20interested%20in%20the%20${encodeURIComponent(pkg.name)}%20package.`}
+                href={`https://wa.me/6281238211110?text=Hello%20D'Karang%20Eco%20Lodge,%20I'm%20interested%20in%20the%20${encodeURIComponent(pkg.name + ' — ' + pkg.duration)}%20package.`}
                 target="_blank"
                 class={`block w-full text-center rounded-full px-5 py-2.5 text-sm font-label font-semibold transition-opacity hover:opacity-90 ${pkg.highlight ? 'bg-linear-to-r from-primary to-primary-container text-on-primary' : 'border-2 border-primary text-primary hover:bg-primary hover:text-on-primary'}`}
               >
